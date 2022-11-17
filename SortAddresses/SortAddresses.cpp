@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <fstream>
 
@@ -70,6 +70,7 @@ int main() {
 
 	address obj;
 	address* ok = new address[y];
+	std::string temp;
 
 	for (int i = 0; i < y; i++) {
 		file1 >> str1;
@@ -85,25 +86,16 @@ int main() {
 		obj.set_flat(x2);
 
 		ok[i] = obj;
-	}
-
-	char arr[] = "а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я";
-
-	int z = y * 2;
-	int temp;
-
-	for (int i = 0; i < z; i++) {
-		for (int j = 0; j < z; j++) {
-			if (arr[i] > arr[j]) {
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
+		for (int j = 0; j < y; j++) {
+			if (str1[i] > str1[j]) {
+				temp = str1[i];
+				str1[i] = str1[j];
+				str1[j] = temp;
 			}
 		}
 	}
 
-	
-	
+
 	file2 << y << std::endl;
 	for (int i = 0; i < y; i++) {
 		file2 << ok[i].get_city();
