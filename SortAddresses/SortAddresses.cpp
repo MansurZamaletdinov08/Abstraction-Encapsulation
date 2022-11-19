@@ -62,8 +62,8 @@ int main() {
 	std::ofstream file2("out.txt");
 
 	int y;
-	int x1, x2;
-	std::string str1, str2;
+	int x1, x2, x3, x4;
+	std::string str1, str2, str3, str4;
 
 	file1 >> y;
 	std::cout << y << std::endl;
@@ -72,6 +72,10 @@ int main() {
 	address* ok = new address[y];
 	std::string temp1;
 	std::string temp2;
+	int z = y / 2;
+	if (y % 2 != 0) {
+		z = y / 2 + 1;
+	}
 
 	for (int i = 0; i < y; i++) {
 		file1 >> str1;
@@ -87,23 +91,6 @@ int main() {
 		obj.set_flat(x2);
 
 		ok[i] = obj;
-		for (int j = 0; j < y; j++) {
-			if (str1[i] > str1[j]) {
-				temp1 = str1[i];
-				str1[i] = str1[j];
-				str1[j] = temp1;
-			}
-		}
-
-		for (int n = 0; n < y; n++) {
-			for (int m = 0; m < y; m++) {
-				if (str2[i] > str2[m]) {
-					temp2 = str2[n];
-					str2[n] = str2[m];
-					str2[m] = temp2;
-				}
-			}
-		}
 	}
 
 
