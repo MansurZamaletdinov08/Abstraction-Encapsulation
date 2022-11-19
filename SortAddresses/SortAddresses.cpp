@@ -72,10 +72,6 @@ int main() {
 	address* ok = new address[y];
 	std::string temp1;
 	std::string temp2;
-	int z = y / 2;
-	if (y % 2 != 0) {
-		z = y / 2 + 1;
-	}
 
 	for (int i = 0; i < y; i++) {
 		file1 >> str1;
