@@ -66,10 +66,11 @@ int main() {
 	std::string str1, str2, str3, str4;
 
 	file1 >> y;
-	std::cout << y << std::endl;
 
 	address obj;
 	address* ok = new address[y];
+	std::string temp1;
+	std::string temp2;
 
 	for (int i = 0; i < y; i++) {
 		file1 >> str1;
@@ -88,13 +89,13 @@ int main() {
 	}
 
 
-	std::string temp;
+	address temp;
 	for (int n = 0; n < y; n++) {
 		for (int m = 0; m < y; m++) {
 			if (ok[m].get_city() > ok[n].get_city()) {
-				temp = ok[n].get_city();
-				ok[n].get_city() = ok[m].get_city();
-				ok[m].get_city() = temp;
+				temp = ok[n];
+				ok[n] = ok[m];
+				ok[m] = temp;
 			}
 		}
 	}
